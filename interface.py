@@ -1,3 +1,27 @@
+# List Reader
+# Input: List
+# Output: none, but will print list to console one line at a time
+def list_reader(x):
+    for i in range(len(x)):
+        print(x[i])
+
+# Fibonacci Sequence
+# Input: Number in return series
+# Output: List in series
+def fib(x):
+    if x < 1:
+        return False
+    elif x == 1:
+        return [0]
+    elif x == 2:
+        return [0, 1]
+    
+    seq = [0, 1]
+    for i in range(2, x):
+        seq.append(seq[i-1] + seq[i-2])
+
+    return seq
+
 # FizzBuzz
 # Input: Number to generate fizzbuzz to
 # Output: None. Prints to console directly
@@ -45,7 +69,9 @@ def get_help():
         'help' : 'Print off a list of commands',
         'h' : 'Print off a list of commands. Alias for help',
         'quit' : 'Terminates the program',
-        'q' : 'Terminates the program. Alias for quit'
+        'q' : 'Terminates the program. Alias for quit',
+        'fibonacci' : 'Initate the fibonacci sequence module',
+        'fib' : 'Initate the fibonacci sequence module. Alias for fibonacci'
     }
     print()
     for key in commands:
@@ -65,6 +91,8 @@ def process_input(text):
         fizz_buzz(int(input('Enter the number you would like to go to: ')))
     elif text == 'help':
         get_help()
+    elif text == 'fib' or text == 'fibonacci':
+        list_reader(fib(int(input('How many numbers would you like to generate: '))))
     else:
         print('Please input a valid command. Type \"help\" if you need a list of commands.')
     return status

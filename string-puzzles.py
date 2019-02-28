@@ -51,36 +51,3 @@ def get_help():
     for key in commands:
         print(key + ': ' + commands[key])
     print()
-
-# Process Input
-# Input: string from user
-# Output: Boolean. Will always be true unless user types 'quit' or 'q'
-def process_input(text):
-    status = True
-    text = text.lower()
-    if text == 'quit' or text == 'q':
-        print('Exiting program...')
-        status = False
-    elif text =='fizz' or text == 'fizzbuzz':
-        fizz_buzz(int(input('Enter the number you would like to go to: ')))
-    elif text == 'help':
-        get_help()
-    else:
-        print('Please input a valid command. Type \"help\" if you need a list of commands.')
-    return status
-
-# Computer
-# A function that handles input from the user
-def computer():
-    print()
-    print("For a list of commands, please type \"help\"")
-    print()
-    live = True
-    while (live):
-        task = str(input('Please enter a command: '))
-        live = process_input(task)
-    
-    
-
-# MAIN BODY
-computer()
